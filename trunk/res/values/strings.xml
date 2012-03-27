@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Certificate Manager</string>
+	<string name="export">Export</string>
+	<string name="export_begin">start exporting ...</string>
+	<string name="export_end">Certificate files are exported to </string>
+</resources>
