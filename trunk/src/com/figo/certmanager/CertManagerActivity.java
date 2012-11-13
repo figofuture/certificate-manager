@@ -103,7 +103,8 @@ public class CertManagerActivity extends Activity {
 							e.printStackTrace();
 						} finally {
 							try {
-								fos.close();
+								if (null != fos)
+									fos.close();
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -120,10 +121,15 @@ public class CertManagerActivity extends Activity {
 			// Toast.makeText(getApplicationContext(),
 			// getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath(),
 			// Toast.LENGTH_LONG).show();
-			mIndicator.setText(getResources().getString(R.string.export_end)
-					+ getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
-							.getAbsolutePath());
 			mExport.setEnabled(true);
+			try {
+				mIndicator.setText(getResources()
+						.getString(R.string.export_end)
+						+ getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)
+								.getAbsolutePath());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
